@@ -1,15 +1,9 @@
 import { Message } from "ai";
 import { NextRequest, NextResponse } from "next/server";
 
-/**
- * Return a stream from the API
- * @param {NextRequest} req - The HTTP request
- * @returns {Promise<NextResponse>} A NextResponse with the streamable response
- */
 export async function POST(req: NextRequest) {
-  // gotta use the request object to invalidate the cache every request :vomit:
   const url = req.url;
-  const model = req.nextUrl.searchParams.get("model") ?? "aura-asteria-en";
+  const model = req.nextUrl.searchParams.get("model") ?? "eleven_multilingual_v2";
   const message: Message = await req.json();
   const start = Date.now();
 
@@ -31,31 +25,34 @@ export async function POST(req: NextRequest) {
     );
 
   return await fetch(
-    `${process.env.DEEPGRAM_STT_DOMAIN}/v1/speak?model=${model}`,
+    `https://api.elevenlabs.io/v1/text-to-speech/kq68Uerrpzn6zZzARbDO/stream?optimize_streaming_latency=3`,
     {
       method: "POST",
-      body: JSON.stringify({ text }),
       headers: {
-        "Content-Type": `application/json`,
-        Authorization: `token ${process.env.DEEPGRAM_API_KEY || ""}`,
-        "X-DG-Referrer": url,
+        Accept: "audio/mpeg",
+        "Content-Type": "application/json",
+        "xi-api-key": process.env.ELEVENLABS_API_KEY || "",
       },
+      body: JSON.stringify({
+        text: text,
+        model_id: 'eleven_turbo_v2',
+     
+      }),
     }
-  )
-    .then(async (response) => {
-      const headers = new Headers();
-      headers.set("X-DG-Latency", `${Date.now() - start}`);
-      headers.set("Content-Type", "audio/mp3");
+  ).then(async (response) => {
+    const headers = new Headers();
+    headers.set("X-DG-Latency", `${Date.now() - start}`);
+    headers.set("Content-Type", "audio/mpeg");
 
-      if (!response?.body) {
-        return new NextResponse("Unable to get response from API.", {
-          status: 500,
-        });
-      }
+    if (!response?.body) {
+      return new NextResponse("Unable to get response from API.", {
+        status: 500,
+      });
+    }
 
-      return new NextResponse(response.body, { headers });
-    })
-    .catch((error: any) => {
-      return new NextResponse(error || error?.message, { status: 500 });
-    });
+    return new NextResponse(response.body, { headers });
+  })
+  .catch((error: any) => {
+    return new NextResponse(error || error?.message, { status: 500 });
+  });
 }
