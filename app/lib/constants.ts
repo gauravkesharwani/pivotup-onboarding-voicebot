@@ -37,7 +37,7 @@ export const greetings = [
     strings: [contextualHello()],
   },
   {
-    text: "%s. - Let’s talk about staying fit and motivated!",
+    text: "%s. - Let's talk about staying fit and motivated!",
     strings: [contextualHello()],
   },
   {
@@ -49,7 +49,7 @@ export const greetings = [
     strings: [contextualHello()],
   },
   {
-    text: "%s! - Curious about a day in my life? Let’s chat!",
+    text: "%s! - Curious about a day in my life? Let's chat!",
     strings: [contextualHello()],
   },
   {
@@ -57,15 +57,15 @@ export const greetings = [
     strings: [contextualHello()],
   },
   {
-    text: "%s! - Let’s discuss the latest trends in fitness and gymnastics!",
+    text: "%s! - Let's discuss the latest trends in fitness and gymnastics!",
     strings: [contextualHello()],
   },
   {
-    text: "%s! - Looking for some motivation? I’m here to help!",
+    text: "%s! - Looking for some motivation? I'm here to help!",
     strings: [contextualHello()],
   },
   {
-    text: "%s. - Can’t wait to share my favorite routines and tips with you all!",
+    text: "%s. - Can't wait to share my favorite routines and tips with you all!",
     strings: [contextualHello()],
   },
 ];
