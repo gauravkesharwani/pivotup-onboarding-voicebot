@@ -32,8 +32,7 @@ export const InitialLoad = ({ fn, connecting = true }: { fn: () => void, connect
           </span>
           <span className="mt-4 block text-sm text-gray-100/70">
             <Headphones /> For optimal enjoyment, we recommend using headphones
-            while using this application. Minor bugs and annoyances may appear
-            while using this demo. Pull requests are welcome.
+            while using this application.
           </span>
         </button>
       </div>
