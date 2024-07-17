@@ -30,9 +30,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fantalk.ai"),
-  title: "Olivia Dunne AI",
-  description: `Olivia Dunne AI`,
+  metadataBase: new URL("https://pivotup.ai"),
+  title: "PivotUP Onboarding Demo",
+  description: `PivotUP Onboarding Demo`,
   robots: {
     index: false,
     follow: false,
