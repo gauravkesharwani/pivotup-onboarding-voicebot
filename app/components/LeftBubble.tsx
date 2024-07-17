@@ -27,12 +27,12 @@ export const LeftBubble = ({ message }: { message: Message }) => {
             <div className="h-6 w-6 shrink-0">
               <MessageAudio message={message} />
             </div>
-            <MessageMeta className="md:hidden" message={message} />
+          
           </div>
         </div>
       </div>
       <div className="hidden col-start-1 col-end-13 md:px-3 pb-3 md:flex gap-2">
-        <MessageMeta className="md:ml-14" message={message} />
+       
       </div>
     </>
   );
