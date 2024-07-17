@@ -13,9 +13,11 @@ export const InitialLoad = ({ fn, connecting = true }: { fn: () => void, connect
           className="relative block w-full glass p-6 sm:p-8 lg:p-12 rounded-xl"
         >
           <h2 className="font-favorit mt-2 block font-bold text-xl text-gray-100">
-            Welcome to Olivia Dunne&apos;s
+            Welcome to
             <br />
-            Voice Bot Demo.
+             PivotUP 
+           
+            Onboarding Demo.
           </h2>
         
           <span className="mt-4 block font-semibold">
